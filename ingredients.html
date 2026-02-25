@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸르나이 — 원재료 철학</title>
+    <meta name="description" content="들어있지 않은 것이, 들어있는 것보다 중요합니다. 푸르나이의 원재료 선택 기준과 클린 라벨 철학.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --blue:#0085CA; --blue-dark:#006DA6; --blue-light:#E8F4FB; --blue-mist:#F2F9FD; --warm-white:#FAFAF8; --cream:#F5F3EE; --dark:#1A1A1A; --text:#2D2D2D; --text-light:#6B6B6B; --text-muted:#999; --border:#E8E6E1; --red-soft:#FDF2F2; --red-text:#C53030; --green-soft:#F0FFF4; --green-text:#276749; }
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Noto Sans KR',sans-serif;color:var(--text);background:var(--warm-white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+        nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(250,250,248,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);transition:all .4s}nav.scrolled{box-shadow:0 2px 40px rgba(0,0,0,0.06)}.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between}.nav-logo svg{height:32px;width:auto}.nav-links{display:flex;gap:36px;list-style:none}.nav-links a{text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500;letter-spacing:-0.02em;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--blue)}.nav-cta{background:var(--blue);color:white!important;padding:10px 24px;border-radius:100px;transition:all .3s!important}.nav-cta:hover{background:var(--blue-dark)!important;transform:translateY(-1px)}
+
+        .section-inner{max-width:1200px;margin:0 auto}.section-label{font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}.section-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.03em;color:var(--dark);margin-bottom:16px;line-height:1.35}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:white;padding:16px 36px;border-radius:100px;text-decoration:none;font-size:.95rem;font-weight:500;transition:all .3s;border:none;cursor:pointer}.btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,133,202,0.3)}.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--text);padding:16px 36px;border-radius:100px;text-decoration:none;font-size:.95rem;font-weight:500;border:1.5px solid var(--border);transition:all .3s}.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+
+        /* Hero */
+        .page-hero{padding:160px 40px 100px;max-width:1200px;margin:0 auto}.page-hero .hero-eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.08em;color:var(--blue);margin-bottom:24px;opacity:0;animation:fadeUp .8s ease forwards .2s}.page-hero h1{font-family:'Noto Serif KR',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.3;letter-spacing:-0.03em;color:var(--dark);margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .4s}.page-hero h1 .highlight{color:var(--blue)}.page-hero .hero-sub{font-size:1.1rem;line-height:1.9;color:var(--text-light);max-width:560px;opacity:0;animation:fadeUp .8s ease forwards .6s}
+
+        /* Flip Section — 뒤집어 읽기 */
+        .flip{padding:100px 40px;background:white;border-top:1px solid var(--border)}.flip-inner{max-width:900px;margin:0 auto;text-align:center}
+        .flip-intro{font-size:1.05rem;color:var(--text-light);line-height:1.85;max-width:600px;margin:0 auto 64px}
+        .flip-intro strong{color:var(--text);font-weight:600}
+        .label-compare{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}
+        .label-card{padding:36px 32px;border-radius:20px;text-align:left}
+        .label-card-bad{background:var(--red-soft);border:1px solid #FED7D7}
+        .label-card-good{background:var(--green-soft);border:1px solid #C6F6D5}
+        .label-card-header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+        .label-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700}
+        .label-card-bad .label-card-icon{background:#FED7D7;color:var(--red-text)}
+        .label-card-good .label-card-icon{background:#C6F6D5;color:var(--green-text)}
+        .label-card-label{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+        .label-card-bad .label-card-label{color:var(--red-text)}
+        .label-card-good .label-card-label{color:var(--green-text)}
+        .label-card-title{font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:900;margin-bottom:16px}
+        .label-card-bad .label-card-title{color:#9B2C2C}
+        .label-card-good .label-card-title{color:#22543D}
+        .label-item{font-size:.88rem;line-height:1.7;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:8px}
+        .label-item:last-child{border-bottom:none}
+        .label-card-bad .label-item{color:#742A2A}
+        .label-card-good .label-item{color:#276749}
+        .label-caption{font-size:.82rem;color:var(--text-muted);margin-top:40px;text-align:center}
+
+        /* Absent Section — 없는 것 */
+        .absent{padding:120px 40px;background:var(--dark);color:white;position:relative;overflow:hidden}
+        .absent::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,133,202,0.1),transparent 70%);pointer-events:none}
+        .absent-inner{max-width:1000px;margin:0 auto}
+        .absent .section-label{color:rgba(0,133,202,0.9)}.absent .section-title{color:white;margin-bottom:20px}
+        .absent-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);line-height:1.85;max-width:560px;margin-bottom:64px}
+        .absent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        .absent-card{padding:32px 28px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:flex-start;gap:20px;transition:all .3s}
+        .absent-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15)}
+        .absent-x{flex-shrink:0;width:44px;height:44px;background:rgba(197,48,48,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;color:#FC8181}
+        .absent-name{font-size:1.05rem;font-weight:700;color:rgba(255,255,255,0.9);margin-bottom:6px}
+        .absent-reason{font-size:.85rem;color:rgba(255,255,255,0.4);line-height:1.7}
+
+        /* Why it matters */
+        .why{padding:100px 40px;background:var(--cream)}
+        .why-inner{max-width:800px;margin:0 auto;text-align:center}
+        .why .section-title{margin-bottom:28px}
+        .why-text{font-size:1.05rem;color:var(--text-light);line-height:2;max-width:600px;margin:0 auto 20px}
+        .why-text strong{color:var(--text);font-weight:600}
+        .why-cta{margin-top:48px}
+
+        /* Quote */
+        .quote-section{padding:100px 40px;background:white;border-top:1px solid var(--border);text-align:center}
+        .quote-inner{max-width:720px;margin:0 auto}
+        .quote-mark{font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--blue);line-height:1;margin-bottom:12px;opacity:.4}
+        .quote-text{font-family:'Noto Serif KR',serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;color:var(--dark);line-height:1.7;margin-bottom:24px;letter-spacing:-0.02em}
+        .quote-attr{font-size:.88rem;color:var(--text-muted)}
+
+        /* CTA */
+        .cta-section{padding:120px 40px;text-align:center;background:linear-gradient(180deg,white 0%,var(--blue-mist) 100%)}.cta-section .section-title{margin-bottom:20px}.cta-section .section-desc{font-size:1.05rem;color:var(--text-light);line-height:1.75;max-width:440px;margin:0 auto 48px;text-align:center}.cta-actions{display:flex;justify-content:center;gap:16px}
+
+        /* Footer */
+        footer{padding:60px 40px;background:var(--dark);border-top:1px solid rgba(255,255,255,0.06)}.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.footer-left{display:flex;flex-direction:column;gap:12px}.footer-logo svg{height:28px}.footer-info{font-size:.78rem;color:rgba(255,255,255,0.35);line-height:1.7}.footer-links{display:flex;gap:28px}.footer-links a{text-decoration:none;color:rgba(255,255,255,0.45);font-size:.82rem;transition:color .3s}.footer-links a:hover{color:white}
+
+        @media(max-width:900px){.label-compare{grid-template-columns:1fr}.absent-grid{grid-template-columns:1fr}.nav-links{display:none}.page-hero{padding:120px 24px 60px}.flip,.absent,.why,.quote-section,.cta-section{padding:80px 24px}.footer-inner{flex-direction:column;gap:32px;text-align:center}}
+        @media(max-width:600px){.cta-actions{flex-direction:column;align-items:center}}
+    </style>
+</head>
+<body>
+
+<nav id="navbar"><div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg viewBox="0 0 2030 826" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1164.47 446.496C1164.47 438.917 1158.27 432.831 1150.69 432.831H1093.36C1090.83 432.831 1088.77 430.764 1088.77 428.238V284.699C1088.77 277.12 1082.56 271.034 1074.98 271.034H976.872C969.289 271.034 963.086 277.12 963.086 284.699V456.256C963.086 506.438 1004.1 547.203 1054.76 547.203H1150.57C1158.15 547.203 1164.36 541.117 1164.36 533.538V446.266L1164.47 446.496Z" fill="#0085CA"/><path d="M1374.48 268.393H1338.4C1335.88 268.393 1333.81 266.326 1333.81 263.914V225.216C1333.81 217.637 1327.6 211.551 1320.02 211.551H1230.76C1223.18 211.551 1216.97 217.637 1216.97 225.216V617.938C1216.97 625.517 1223.18 631.603 1230.76 631.603H1320.02C1327.6 631.603 1333.81 625.517 1333.81 617.938V389.654C1333.81 387.128 1335.88 385.176 1338.4 385.176H1374.48C1382.06 385.176 1388.26 379.09 1388.26 371.511V282.287C1388.26 274.708 1382.17 268.622 1374.48 268.622V268.393Z" fill="#0085CA"/><path d="M1899.48 211.437H1810.1C1802.52 211.437 1796.32 217.523 1796.32 225.102V617.824C1796.32 625.402 1802.52 631.489 1810.1 631.489H1899.48C1907.06 631.489 1913.27 625.402 1913.27 617.824V224.987C1913.27 217.408 1907.06 211.322 1899.48 211.322V211.437Z" fill="#0085CA"/><path d="M682.432 470.84H814.89C821.668 470.84 827.182 465.443 827.182 458.668V386.669C827.182 379.894 821.668 374.497 814.89 374.497H711.497C708.165 374.497 705.408 371.741 705.408 368.411V322.938C705.408 319.607 708.165 316.851 711.497 316.851H814.89C821.668 316.851 827.182 311.454 827.182 304.679V158.844C827.182 114.06 790.535 77.7732 745.387 77.7732H655.549C648.771 77.7732 643.257 83.1703 643.257 89.9453V162.059C643.257 168.834 648.771 174.231 655.549 174.231H716.207C719.538 174.231 722.296 176.987 722.296 180.317V219.015C722.296 222.345 719.538 225.101 716.207 225.101H612.814C606.036 225.101 600.521 230.499 600.521 237.274V389.654C600.521 434.438 637.169 470.725 682.317 470.725L682.432 470.84Z" fill="#0085CA"/><path d="M235.199 476.582H528.605C535.383 476.582 540.897 471.184 540.897 464.409V392.296C540.897 385.521 535.383 380.123 528.605 380.123H509.535C506.203 380.123 503.446 377.368 503.446 374.037V327.416C503.446 324.086 506.203 321.33 509.535 321.33H528.605C535.383 321.33 540.897 315.933 540.897 309.158V237.274C540.897 230.499 535.383 225.102 528.605 225.102H235.199C228.421 225.102 222.906 230.499 222.906 237.274V309.158C222.906 315.933 228.421 321.33 235.199 321.33H254.269C257.6 321.33 260.358 324.086 260.358 327.416V374.037C260.358 377.368 257.6 380.123 254.269 380.123H235.199C228.421 380.123 222.906 385.521 222.906 392.296V464.409C222.906 471.184 228.421 476.582 235.199 476.582ZM350.309 327.531C350.309 324.201 353.067 321.445 356.398 321.445H407.405C410.737 321.445 413.494 324.201 413.494 327.531V374.152C413.494 377.482 410.737 380.238 407.405 380.238H356.398C353.067 380.238 350.309 377.482 350.309 374.152V327.531Z" fill="#0085CA"/><path d="M1595.39 248.527C1510.26 248.527 1441.22 316.966 1441.22 401.482C1441.22 485.997 1510.26 554.437 1595.39 554.437C1680.52 554.437 1749.56 485.997 1749.56 401.482C1749.56 316.966 1680.52 248.527 1595.39 248.527ZM1595.39 443.625C1571.96 443.625 1553 424.793 1553 401.597C1553 378.401 1571.96 359.568 1595.39 359.568C1618.83 359.568 1637.78 378.401 1637.78 401.597C1637.78 424.793 1618.83 443.625 1595.39 443.625Z" fill="#0085CA"/><path d="M922.877 502.418C920.235 495.184 912.079 491.51 904.841 494.38C890.826 500.007 870.951 506.782 844.414 513.672C787.432 528.37 687.371 545.825 534.12 545.825C380.868 545.825 280.807 528.37 223.826 513.672C197.288 506.897 177.529 500.007 163.398 494.38C156.161 491.51 148.004 495.184 145.362 502.418L117.561 578.437C115.033 585.441 118.48 593.135 125.488 595.776C163.858 610.819 226.238 629.307 319.752 641.249V695.909C319.752 703.488 325.84 709.574 333.537 709.574H430.267C437.849 709.574 444.053 703.488 444.053 695.909V651.699C472.199 652.962 502.183 653.651 534.235 653.651C754.806 653.651 880.486 620.12 942.867 595.661C949.76 592.905 953.321 585.212 950.794 578.322L922.992 502.304L922.877 502.418Z" fill="#0085CA"/></svg></a>
+    <ul class="nav-links"><li><a href="about.html">소개</a></li><li><a href="ingredients.html" class="active">원재료</a></li><li><a href="index.html#products">제품</a></li><li><a href="index.html#beolnamu">벌나무</a></li><li><a href="#" class="nav-cta">구매하기</a></li></ul>
+</div></nav>
+
+<!-- Hero -->
+<section class="page-hero">
+    <div class="hero-eyebrow">INGREDIENT PHILOSOPHY</div>
+    <h1>들어있지 않은 것이<br><span class="highlight">더 중요합니다</span></h1>
+    <p class="hero-sub">가공식품의 원재료표는 보통 길고 복잡합니다.<br>푸르나이의 원재료표는 짧습니다.<br>뺄 수 있는 것을 전부 뺐기 때문입니다.</p>
+</section>
+
+<!-- 원재료표 비교 -->
+<section class="flip">
+    <div class="flip-inner">
+        <div class="section-label reveal">Read The Label</div>
+        <div class="section-title reveal">두 개의 원재료표</div>
+        <p class="flip-intro reveal">같은 종류의 제품입니다. 하나는 원재료표가 길고, 하나는 짧습니다.<br><strong>차이는 단 하나 — 넣지 않아도 되는 것을 넣었느냐, 안 넣었느냐.</strong></p>
+        <div class="label-compare reveal">
+            <div class="label-card label-card-bad">
+                <div class="label-card-header">
+                    <div class="label-card-icon">A</div>
+                    <div class="label-card-label">일반 돈까스</div>
+                </div>
+                <div class="label-card-title">읽다가 포기하는 원재료표</div>
+                <div class="label-item">⚪ 돼지고기 30~40%</div>
+                <div class="label-item">⚪ 연육제 (인산나트륨)</div>
+                <div class="label-item">⚪ 대두단백</div>
+                <div class="label-item">⚪ 베타믹스</div>
+                <div class="label-item">⚪ 수입밀 빵가루</div>
+                <div class="label-item">⚪ 합성착색료</div>
+                <div class="label-item">⚪ L-글루타민산나트륨</div>
+                <div class="label-item">⚪ 합성보존료</div>
+                <div class="label-item" style="opacity:0.5">… 외 7종</div>
+            </div>
+            <div class="label-card label-card-good">
+                <div class="label-card-header">
+                    <div class="label-card-icon">P</div>
+                    <div class="label-card-label">푸르나이 돈까스</div>
+                </div>
+                <div class="label-card-title">읽을 수 있는 원재료표</div>
+                <div class="label-item">🟢 무항생제 국산 돼지고기 70%</div>
+                <div class="label-item">🟢 국산 우리밀 빵가루</div>
+                <div class="label-item">🟢 국산 계란</div>
+                <div class="label-item">🟢 소금, 후추</div>
+                <div class="label-item" style="font-weight:600;color:#22543D;margin-top:12px;border:none;padding-top:16px;border-top:1px dashed #C6F6D5">— 이게 전부입니다.</div>
+            </div>
+        </div>
+        <p class="label-caption reveal">※ 일반 돈까스 원재료표는 시중 제품을 참고한 예시입니다.</p>
+    </div>
+</section>
+
+<!-- 없는 것 8가지 -->
+<section class="absent">
+    <div class="absent-inner">
+        <div class="section-label reveal">What's NOT Inside</div>
+        <div class="section-title reveal">푸르나이에 없는 8가지</div>
+        <p class="absent-desc reveal">이 성분들을 빼면 원가가 올라가고, 유통기한이 짧아지고, 만들기가 어려워집니다.<br>그래도 빼는 이유는 하나입니다. 넣을 이유가 없으니까.</p>
+        <div class="absent-grid">
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">합성착색료</div><p class="absent-reason">진짜 재료를 쓰면 색을 입힐 필요가 없습니다. 소비자의 눈을 속이는 색소는 사용하지 않습니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">합성보존료</div><p class="absent-reason">유통기한을 늘리기 위한 보존료 대신, 적정 생산과 콜드체인으로 신선도를 관리합니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">합성향료</div><p class="absent-reason">고기맛 향료, 버터맛 향료. 진짜를 넣으면 흉내 낼 필요가 없어집니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">연화제</div><p class="absent-reason">인산나트륨 등으로 고기를 인위적으로 부드럽게 만들지 않습니다. 좋은 부위를 쓰면 됩니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">베타믹스</div><p class="absent-reason">고기 함량을 낮추고 무게를 늘리는 충전제. 고기가 충분하면 채울 것도 없습니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">GMO 원료</div><p class="absent-reason">전 제품에 Non-GMO 원칙을 적용합니다. 콩, 옥수수 등 GMO 고위험 원료를 특히 관리합니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">목초액</div><p class="absent-reason">합성 훈연액으로 훈제 맛을 내는 대신, 자작나무 칩으로 직접 훈연합니다.</p></div>
+            </div>
+            <div class="absent-card reveal">
+                <div class="absent-x">✕</div>
+                <div><div class="absent-name">마가린 · 쇼트닝</div><p class="absent-reason">트랜스지방의 원인. 국산 버터가 비싸도 진짜 유지방을 사용합니다.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+    <div class="quote-inner reveal">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">좋은 재료를 충분히 쓰면,<br>무언가를 인위적으로 넣을 이유가 사라집니다.</p>
+        <p class="quote-attr">— 그래서 푸르나이의 원재료표가 짧습니다</p>
+    </div>
+</section>
+
+<!-- Why it matters -->
+<section class="why">
+    <div class="why-inner reveal">
+        <div class="section-label">Why It Matters</div>
+        <div class="section-title">원재료표를 읽어야 하는 이유</div>
+        <p class="why-text">겉포장은 누구나 예쁘게 만들 수 있습니다. "자연의", "건강한", "프리미엄" — 이런 단어는 규제 없이 아무나 쓸 수 있습니다.</p>
+        <p class="why-text"><strong>진짜 정보는 뒷면에 있습니다.</strong> 원재료표에는 거짓말이 어렵습니다. 어떤 원료를, 얼마나, 어떤 순서로 넣었는지 — 법적으로 공개해야 하니까요.</p>
+        <p class="why-text">그래서 우리는 말합니다. 우리 제품의 앞면 대신 <strong>뒷면을 먼저 보세요.</strong> 그리고 다른 제품의 뒷면과 비교해 보세요. 차이가 보일 겁니다.</p>
+        <div class="why-cta">
+            <a href="index.html#products" class="btn-primary">제품 원재료표 확인하기 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="section-inner reveal">
+        <div class="section-label">About</div>
+        <div class="section-title">왜 이런 기준을 갖게 됐는지<br>궁금하다면</div>
+        <p class="section-desc">푸르나이가 어떤 회사인지, 어떤 약속을 하는지 읽어보세요.</p>
+        <div class="cta-actions">
+            <a href="about.html" class="btn-primary">브랜드 이야기 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+            <a href="index.html" class="btn-secondary">홈으로</a>
+        </div>
+    </div>
+</section>
+
+<footer><div class="footer-inner">
+    <div class="footer-left">
+        <a href="index.html" class="footer-logo"><svg viewBox="0 0 2030 826" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1164.47 446.496C1164.47 438.917 1158.27 432.831 1150.69 432.831H1093.36C1090.83 432.831 1088.77 430.764 1088.77 428.238V284.699C1088.77 277.12 1082.56 271.034 1074.98 271.034H976.872C969.289 271.034 963.086 277.12 963.086 284.699V456.256C963.086 506.438 1004.1 547.203 1054.76 547.203H1150.57C1158.15 547.203 1164.36 541.117 1164.36 533.538V446.266L1164.47 446.496Z" fill="rgba(255,255,255,0.5)"/><path d="M1374.48 268.393H1338.4C1335.88 268.393 1333.81 266.326 1333.81 263.914V225.216C1333.81 217.637 1327.6 211.551 1320.02 211.551H1230.76C1223.18 211.551 1216.97 217.637 1216.97 225.216V617.938C1216.97 625.517 1223.18 631.603 1230.76 631.603H1320.02C1327.6 631.603 1333.81 625.517 1333.81 617.938V389.654C1333.81 387.128 1335.88 385.176 1338.4 385.176H1374.48C1382.06 385.176 1388.26 379.09 1388.26 371.511V282.287C1388.26 274.708 1382.17 268.622 1374.48 268.622V268.393Z" fill="rgba(255,255,255,0.5)"/><path d="M1899.48 211.437H1810.1C1802.52 211.437 1796.32 217.523 1796.32 225.102V617.824C1796.32 625.402 1802.52 631.489 1810.1 631.489H1899.48C1907.06 631.489 1913.27 625.402 1913.27 617.824V224.987C1913.27 217.408 1907.06 211.322 1899.48 211.322V211.437Z" fill="rgba(255,255,255,0.5)"/><path d="M682.432 470.84H814.89C821.668 470.84 827.182 465.443 827.182 458.668V386.669C827.182 379.894 821.668 374.497 814.89 374.497H711.497C708.165 374.497 705.408 371.741 705.408 368.411V322.938C705.408 319.607 708.165 316.851 711.497 316.851H814.89C821.668 316.851 827.182 311.454 827.182 304.679V158.844C827.182 114.06 790.535 77.7732 745.387 77.7732H655.549C648.771 77.7732 643.257 83.1703 643.257 89.9453V162.059C643.257 168.834 648.771 174.231 655.549 174.231H716.207C719.538 174.231 722.296 176.987 722.296 180.317V219.015C722.296 222.345 719.538 225.101 716.207 225.101H612.814C606.036 225.101 600.521 230.499 600.521 237.274V389.654C600.521 434.438 637.169 470.725 682.317 470.725L682.432 470.84Z" fill="rgba(255,255,255,0.5)"/><path d="M235.199 476.582H528.605C535.383 476.582 540.897 471.184 540.897 464.409V392.296C540.897 385.521 535.383 380.123 528.605 380.123H509.535C506.203 380.123 503.446 377.368 503.446 374.037V327.416C503.446 324.086 506.203 321.33 509.535 321.33H528.605C535.383 321.33 540.897 315.933 540.897 309.158V237.274C540.897 230.499 535.383 225.102 528.605 225.102H235.199C228.421 225.102 222.906 230.499 222.906 237.274V309.158C222.906 315.933 228.421 321.33 235.199 321.33H254.269C257.6 321.33 260.358 324.086 260.358 327.416V374.037C260.358 377.368 257.6 380.123 254.269 380.123H235.199C228.421 380.123 222.906 385.521 222.906 392.296V464.409C222.906 471.184 228.421 476.582 235.199 476.582ZM350.309 327.531C350.309 324.201 353.067 321.445 356.398 321.445H407.405C410.737 321.445 413.494 324.201 413.494 327.531V374.152C413.494 377.482 410.737 380.238 407.405 380.238H356.398C353.067 380.238 350.309 377.482 350.309 374.152V327.531Z" fill="rgba(255,255,255,0.5)"/><path d="M1595.39 248.527C1510.26 248.527 1441.22 316.966 1441.22 401.482C1441.22 485.997 1510.26 554.437 1595.39 554.437C1680.52 554.437 1749.56 485.997 1749.56 401.482C1749.56 316.966 1680.52 248.527 1595.39 248.527ZM1595.39 443.625C1571.96 443.625 1553 424.793 1553 401.597C1553 378.401 1571.96 359.568 1595.39 359.568C1618.83 359.568 1637.78 378.401 1637.78 401.597C1637.78 424.793 1618.83 443.625 1595.39 443.625Z" fill="rgba(255,255,255,0.5)"/><path d="M922.877 502.418C920.235 495.184 912.079 491.51 904.841 494.38C890.826 500.007 870.951 506.782 844.414 513.672C787.432 528.37 687.371 545.825 534.12 545.825C380.868 545.825 280.807 528.37 223.826 513.672C197.288 506.897 177.529 500.007 163.398 494.38C156.161 491.51 148.004 495.184 145.362 502.418L117.561 578.437C115.033 585.441 118.48 593.135 125.488 595.776C163.858 610.819 226.238 629.307 319.752 641.249V695.909C319.752 703.488 325.84 709.574 333.537 709.574H430.267C437.849 709.574 444.053 703.488 444.053 695.909V651.699C472.199 652.962 502.183 653.651 534.235 653.651C754.806 653.651 880.486 620.12 942.867 595.661C949.76 592.905 953.321 585.212 950.794 578.322L922.992 502.304L922.877 502.418Z" fill="rgba(255,255,255,0.5)"/></svg></a>
+        <div class="footer-info">농업회사법인 (주)푸르나이<br>© 2025 Prunai. All rights reserved.</div>
+    </div>
+    <div class="footer-links"><a href="about.html">소개</a><a href="index.html#products">제품</a><a href="#">납품 문의</a><a href="#">개인정보처리방침</a></div>
+</div></footer>
+
+<script>
+const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+const observer=new IntersectionObserver(entries=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
